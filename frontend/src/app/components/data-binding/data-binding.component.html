@@ -1,0 +1,45 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-4  bg-{{nameBg}} ">
+            {{name}}
+        </div>
+        <div [class]="ageClasses">
+            {{age}}
+        </div>
+        <div class="col-4 bg-primary">
+            status : {{isDisabled?'Authecnicated':'Not-Authecnicated'}}
+        </div>
+
+
+
+    </div>
+    <div class="container py-5">
+        <div class="row">
+
+            <div class="col-4  bg-{{nameBg}}">
+                @for (item of data; track $index) {
+                <ul>
+                    <li>
+                        {{item.name}}
+                    </li>
+                    <li>
+                        {{item.age}}
+                    </li>
+                    <li>
+                        {{item.isMarried?'Married ':'Not Married yet'}}
+                    </li>
+                </ul>
+
+                }
+            </div>
+
+            <div class="col-4">
+                <button class="btn btn-primary" (click)="handler('Name Chanegd')">Change Age</button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-primary"  (click)="routeHandler()">Change Age</button>
+            </div>
+        </div>
+
+    </div>
+</div>
