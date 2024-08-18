@@ -1,33 +1,38 @@
 <div class="container py-5">
     <div class="row">
-
-        <table class="table table-dark table-striped">
+        <table class="table table-dark ">
             <tr>
                 <td>Sr.No</td>
                 <td>Name</td>
                 <td>Age</td>
+                <td>Addrress</td>
                 <td>Status</td>
-
             </tr>
-
-            <tr *ngFor="let item of users">
+            @for (item of users; track $index) {
+            <tr>
                 <td>
                     {{item.id}}
                 </td>
                 <td>
-                    {{item.name}}
+                    {{item.name | uppercase}}
+                </td>
+                <td>
+                    {{item.address | data}}
                 </td>
                 <td>
                     {{item.age}}
                 </td>
-                <td *ngIf="item.isActive" #else>
+                @if (item.isActive) {
+                <td [ngStyle]="{'background':item.isActive?'green':'red'}">
                     {{item.isActive}}
                 </td>
-                ngw
+                }@else {
+                <td [ngClass]="bgRed">
+                        Not Active
+                </td>
+                }
             </tr>
+            }
         </table>
-
-
-
     </div>
 </div>
